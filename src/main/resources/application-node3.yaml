@@ -1,0 +1,9 @@
+server:
+  port: 8763
+
+eureka:
+  instance:
+    hostname: eureka-node3
+  client:
+    service-url:
+      defaultZone: http://eureka-node1:8761/eureka,http://eureka-node2:8762/eureka

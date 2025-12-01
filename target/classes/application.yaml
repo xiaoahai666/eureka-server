@@ -1,25 +1,9 @@
+# application.yml（公共配置）
 spring:
   application:
-    name: eureka-server-dame
-server:
-  port: 8762 #  eureka默认端口号为8761
+    name: eureka-server-cluster
+
 eureka:
   client:
-    # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址
-    service-url:
-      defaultZone: http://127.0.0.1:${server.port}/eureka
-#      defaultZone: http://127.0.0.1:9002/eureka
-    # 不把自己注册到eureka服务列表
-    register-with-eureka: false
-    # 拉取eureka服务信息
-    fetch-registry: false #false表示自己就是注册中心，不需要从注册中心获取注册列表信息
-  instance:
-    #客户端在注册时使用自己的IP而不是主机名
-    prefer-ip-address: true
-    # 实例id
-    instance-id: ${spring.cloud.ip-address}:${spring.application.name}:${server.port}
-
-
-logging:
-  level:
-    root: debug
+    register-with-eureka: true
+    fetch-registry: true
